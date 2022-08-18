@@ -41,15 +41,3 @@ func (p *Ptr)GetAt(idx uint8)byte  {
 	b:=p.Get()
 	return (((1<<idx)^0)&b)>>idx
 }
-
-func main()  {
-	p:=Ptr{}
-	i:=2
-	fmt.Printf("%d\n",&i)
-	fmt.Println(uint64(uintptr(unsafe.Pointer(&i))))
-	p.MoveTo(uint64(uintptr(unsafe.Pointer(&i))))
-	fmt.Println(p.Get())
-	for i:=0;i<7;i++ {
-		fmt.Println(p.GetAt(uint8(i)))
-	}
-}
